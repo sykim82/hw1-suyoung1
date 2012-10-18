@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<collectionReader>
+		<collectionIterator>
+			<descriptor>
+				<import location="file:///D:/0.cmu/2012.fall/2.SE/workspace/11791/hw1-suyoung1/src/main/resources/descriptors/collectionReaderDescriptor.xml" />
+			</descriptor>
+		</collectionIterator>
+	</collectionReader>
+
+	<casProcessors casPoolSize="2" processingUnitThreadCount="1">
+		<casProcessor deployment="integrated" name="hw1-casannotator">
+			<descriptor>
+				<import location="file:///D:/0.cmu/2012.fall/2.SE/workspace/11791/hw1-suyoung1/src/main/resources/descriptors/MyAnnotator.xml"/>
+			</descriptor>
+			<deploymentParameters />
+			<errorHandling>
+				<errorRateThreshold action="terminate" value="100/1000" />
+				<maxConsecutiveRestarts action="terminate"
+					value="30" />
+				<timeout max="100000" />
+			</errorHandling>
+			<checkpoint batch="100" time="1000ms" />
+		</casProcessor>
+		<casProcessor deployment="integrated" name="hw1-casconsumer">
+			<descriptor>
+				<import location="file:///D:/0.cmu/2012.fall/2.SE/workspace/11791/hw1-suyoung1/src/main/resources/descriptors/casConsumerDescriptor.xml"/>
+			</descriptor>
+			<deploymentParameters />
+			<errorHandling>
+				<errorRateThreshold action="terminate" value="100/1000" />
+				<maxConsecutiveRestarts action="terminate"
+					value="30" />
+				<timeout max="100000" />
+			</errorHandling>
+			<checkpoint batch="100" time="1000ms" />
+		</casProcessor>
+		
+	</casProcessors>
+	<cpeConfig>
+		<numToProcess>1000</numToProcess>
+		<deployAs>immediate</deployAs>
+		<checkpoint file="[path]/checkpoint.dat" time="3000ms" />
+		<timerImpl>
+			org.apache.uima.reference_impl.util.JavaTimer
+		</timerImpl>
+	</cpeConfig>
+</cpeDescription>
