@@ -42,6 +42,14 @@ import org.apache.uima.util.ProgressImpl;
  * extract the text from binary documents and generates annotations to represent
  * the markup
  */
+
+
+/**
+ * Annotator class that annotates Tokens and Sentences. and annotates Gene names.
+ * @author suyoun kim
+ * @param 
+ * @return 
+ */
 public class MyFileSystemCollectionReader extends CollectionReader_ImplBase {
 	/**
 	 * Name of configuration parameter that must be set to the path of a

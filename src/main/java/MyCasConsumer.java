@@ -36,7 +36,7 @@ import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
 /**
- * An example of CAS Consumer. <br>
+ * CAS Consumer. <br>
  * AnnotationPrinter prints to an output file all annotations in the CAS. <br>
  * Parameters needed by the AnnotationPrinter are
  * <ol>
@@ -50,6 +50,12 @@ import org.apache.uima.util.ProcessTrace;
  * 
  */
 
+/**
+ * Annotator class that annotates Tokens and Sentences. and annotates Gene names.
+ * @author suyoun kim
+ * @param 
+ * @return 
+ */
 public class MyCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor {
   File outFile;
 
@@ -60,7 +66,9 @@ public class MyCasConsumer extends CasConsumer_ImplBase implements CasObjectProc
 
   /**
    * Initializes this CAS Consumer with the parameters specified in the descriptor.
-   * 
+   * @author suyoun
+   * @return void
+   * @param void
    * @throws ResourceInitializationException
    *           if there is error in initializing the resources
    */
@@ -93,7 +101,7 @@ public class MyCasConsumer extends CasConsumer_ImplBase implements CasObjectProc
    * Processes the CasContainer which was populated by the TextAnalysisEngines. <br>
    * In this case, the CAS index is iterated over selected annotations and printed out into an
    * output file
-   * 
+   * @author suyoun
    * @param aCAS
    *          CasContainer which has been populated by the TAEs
    * 

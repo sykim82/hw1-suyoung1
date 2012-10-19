@@ -15,6 +15,13 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 /** gene
  * Updated by JCasGen Wed Oct 17 12:39:11 EDT 2012
  * @generated */
+
+/**
+ * Annotator class that annotates Tokens and Sentences. and annotates Gene names.
+ * @author suyoun kim
+ * @param 
+ * @return 
+ */
 public class MyGene_Type extends Annotation_Type {
   /** @generated */
   @Override

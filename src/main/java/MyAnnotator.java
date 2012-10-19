@@ -61,7 +61,10 @@ import com.aliasi.corpus.ObjectHandler;
 import com.aliasi.util.AbstractExternalizable;
 
 /**
- * An example annotator that annotates Tokens and Sentences.
+ * Annotator class that annotates Tokens and Sentences. and annotates Gene names.
+ * @author suyoun kim
+ * @param 
+ * @return 
  */
 public class MyAnnotator extends JCasAnnotator_ImplBase {
   JCas jcas;
@@ -81,6 +84,12 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
   // *************************************************************
   // * process *
   // *************************************************************
+/**
+ * initiate stanford NLP instance and the biomedical NER model file 
+ * @author suyoun
+ * @return void
+ * @throws ResourceInitializationException
+ */
   public void PosTagNamedEntityRecognizer() throws ResourceInitializationException {
     Properties props = new Properties();
     props.put("annotators", "tokenize, ssplit, pos");
@@ -100,8 +109,14 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
   }
-
-  public Map<Integer, Integer> getGeneSpans2(String text) {
+/**
+ * extract sentence identifier and add to JCAS as a MyID type 
+ * extract "name phrase" in each sentence and call the gene annotator
+ * @author suyoun
+ * @param text
+ * @return position Map
+ */
+  public Map<Integer, Integer> getNounPhrase(String text) {
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
     Annotation document = new Annotation(text);
     pipeline.annotate(document);
@@ -149,7 +164,13 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
     }
     return begin2end;
   }
-
+/**
+ * annotate gene name and add to JCAS as a MyGene type
+ * @author suyoun
+ * @return void
+ * @param text
+ * @param noun
+ */
   public void getGeneAnnot(String text, Map<Integer, Integer> noun) {
     for (Map.Entry<Integer, Integer> entry : noun.entrySet()) {
       String test;
@@ -174,7 +195,13 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
       }
     }
   }
-
+/**
+ * annotator engine. call the NLP NER with input stream from JCAS parameter
+ * @author suyoun
+ * @return void
+ * @param JCAS
+ * 
+ */
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     jcas = aJCas;
     input = jcas.getDocumentText();
@@ -187,7 +214,7 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
     // System.out.println(input);
-    Map<Integer, Integer> nounPhrase = this.getGeneSpans2(input);
+    Map<Integer, Integer> nounPhrase = this.getNounPhrase(input);
 
     this.getGeneAnnot(input, nounPhrase);
     /**/
