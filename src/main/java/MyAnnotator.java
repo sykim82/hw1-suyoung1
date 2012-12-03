@@ -97,7 +97,7 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
 
     try {
       File modelFile = new File(
-              "D:/0.cmu/2012.fall/2.SE/workspace/11791/hw1-suyoung1/src/main/resources/bio-genetag.HmmChunker");
+              "src/main/resources/bio-genetag.HmmChunker");
       System.out.println("Reading chunker from file=" + modelFile);
       chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
 

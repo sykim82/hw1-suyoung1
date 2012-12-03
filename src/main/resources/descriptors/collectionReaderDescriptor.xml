@@ -69,7 +69,7 @@
 			-->
 				<name>InputDirectory</name>
 				<value>
-					<string>D:\0.cmu\2012.fall\2.SE\workspace\11791\hw1-suyoung1\src\main\resources\data\
+					<string>src/main/resources/data/
 					</string>
 				</value>
 			</nameValuePair>

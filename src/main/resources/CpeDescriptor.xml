@@ -3,7 +3,7 @@
 	<collectionReader>
 		<collectionIterator>
 			<descriptor>
-				<import location="src/main/resources/descriptors/collectionReaderDescriptor.xml" />
+				<import location="descriptors/collectionReaderDescriptor.xml" />
 			</descriptor>
 		</collectionIterator>
 	</collectionReader>
@@ -11,7 +11,7 @@
 	<casProcessors casPoolSize="2" processingUnitThreadCount="1">
 		<casProcessor deployment="integrated" name="hw1-casannotator">
 			<descriptor>
-				<import location="src/main/resources/descriptors/MyAnnotator.xml"/>
+				<import location="descriptors/MyAnnotator.xml"/>
 			</descriptor>
 			<deploymentParameters />
 			<errorHandling>
@@ -24,7 +24,7 @@
 		</casProcessor>
 		<casProcessor deployment="integrated" name="hw1-casconsumer">
 			<descriptor>
-				<import location="src/main/resources/descriptors/casConsumerDescriptor.xml"/>
+				<import location="descriptors/casConsumerDescriptor.xml"/>
 			</descriptor>
 			<deploymentParameters />
 			<errorHandling>

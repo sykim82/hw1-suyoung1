@@ -42,7 +42,7 @@
 			<nameValuePair>
 				<name>outputFile</name>
 				<value>
-					<string>D:\0.cmu\2012.fall\2.SE\workspace\11791\hw1-suyoung1\src\main\resources\out\hw1-suyoung1.out</string>
+					<string>out\hw1-suyoung1.out</string>
 				</value>
 			</nameValuePair>
 		</configurationParameterSettings>
