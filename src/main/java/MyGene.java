@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 /** gene
  * Updated by JCasGen Wed Oct 17 12:39:11 EDT 2012
- * XML source: D:/0.cmu/2012.fall/2.SE/workspace/11791/hw1-suyoung1/src/main/resources/descriptors/MyAnnotator.xml
+ * XML source: src/main/resources/descriptors/MyAnnotator.xml
  * @generated */
 public class MyGene extends Annotation {
   /** @generated
