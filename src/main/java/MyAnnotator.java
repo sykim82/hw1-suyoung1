@@ -18,7 +18,9 @@
  */
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.text.BreakIterator;
 import java.text.ParsePosition;
@@ -36,6 +38,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.uima.resource.ResourceAccessException;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
@@ -89,17 +92,19 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
  * @author suyoun
  * @return void
  * @throws ResourceInitializationException
+ * @throws ResourceAccessException 
  */
-  public void PosTagNamedEntityRecognizer() throws ResourceInitializationException {
+  public void PosTagNamedEntityRecognizer() throws ResourceInitializationException, ResourceAccessException {
     Properties props = new Properties();
     props.put("annotators", "tokenize, ssplit, pos");
     pipeline = new StanfordCoreNLP(props);
 
     try {
-      File modelFile = new File(
+      /*
+      File modelFile = new File( 
               "src/main/resources/bio-genetag.HmmChunker");
-      System.out.println("Reading chunker from file=" + modelFile);
-      chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
+              */
+      chunker = (Chunker) AbstractExternalizable.readObject(new File(getContext().getResourceFilePath("src/main/resources/bio-genetag.HmmChunker")));
 
     } catch (IOException e) {
       // TODO Auto-generated catch block
@@ -210,6 +215,9 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
     try {
       this.PosTagNamedEntityRecognizer();
     } catch (ResourceInitializationException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (ResourceAccessException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
