@@ -104,7 +104,8 @@ public class MyAnnotator extends JCasAnnotator_ImplBase {
       File modelFile = new File( 
               "src/main/resources/bio-genetag.HmmChunker");
               */
-      chunker = (Chunker) AbstractExternalizable.readObject(new File(getContext().getResourceFilePath("src/main/resources/bio-genetag.HmmChunker")));
+      //chunker = (Chunker) AbstractExternalizable.readObject(new File(getContext().getResourceFilePath("src/main/resources/bio-genetag.HmmChunker")));
+      chunker = (Chunker) AbstractExternalizable.readObject(new File(getContext().getResourceFilePath("HmmChunker")));
 
     } catch (IOException e) {
       // TODO Auto-generated catch block
