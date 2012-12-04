@@ -2,8 +2,7 @@
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
 	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
 	<implementationName>
-<!-- MyFileSystemCollectionReader	-->
- org.apache.uima.examples.cpe.FileSystemCollectionReader	
+MyFileSystemCollectionReader
 	</implementationName>
 	<processingResourceMetaData>
 		<name>File System Collection Reader</name>
@@ -21,7 +20,7 @@
 			<configurationParameter>
 <!--  
 				<name>inputFile</name>-->	
-                <name>InputDirectory</name>
+                <name>InputFile</name>
 				<description>input file</description>
 				<type>String</type>
 				<multiValued>false</multiValued>
@@ -60,9 +59,9 @@
 		</configurationParameters>
 		<configurationParameterSettings>
 			<nameValuePair>
-				<name>InputDirectory</name>
+				<name>InputFile</name>
 				<value>
-					<string>src/main/resources/data/
+					<string>src/main/resources/data/hw1.in
 					</string>
 				</value>
 			</nameValuePair>
