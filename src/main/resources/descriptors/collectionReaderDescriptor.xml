@@ -60,13 +60,6 @@
 		</configurationParameters>
 		<configurationParameterSettings>
 			<nameValuePair>
-			<!-- 
-				<name>inputFile</name> 
-				<value>
-					<string>D:\0.cmu\2012.fall\2.SE\workspace\11791\hw1-suyoung1\src\main\resources\data\hw1.in
-					</string>
-				</value>
-			-->
 				<name>InputDirectory</name>
 				<value>
 					<string>src/main/resources/data/
