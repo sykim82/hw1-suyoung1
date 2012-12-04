@@ -42,7 +42,7 @@
 			<nameValuePair>
 				<name>outputFile</name>
 				<value>
-					<string>src/main/resources/out/hw1-suyoung1.out</string>
+					<string>hw1-suyoung1.out</string>
 				</value>
 			</nameValuePair>
 		</configurationParameterSettings>
